@@ -35,6 +35,8 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     // [4] websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // [5] Jsoup https://mvnrepository.com/artifact/org.jsoup/jsoup
+    implementation("org.jsoup:jsoup:1.21.2")
 }
 
 tasks.named('test') {
