@@ -34,16 +34,17 @@ public class ResponseController {
         return ResponseEntity.status( 403 ).build(); // build() 반환값이 없다. 접근권한 없음(403)
     }// func end
 
+    // 5. Dto 또는 Map 반환
     @GetMapping("/object")
-    public ResponseEntity< Void > task5(){
-       try{
-           //Integer.parseInt("a");// 강제로 오류 발생
-           Map<String, String> map = new HashMap<>(); // 예제 샘플
-           map.put("data","sample");
-           return ResponseEntity.status( 200 ).build();
-       }catch ( Exception e ){
-           return ResponseEntity.status( 500 ).build();
-       }
-    }// func end
+    public ResponseEntity< Map<String,String> > task5(){
+        try{
+            // Integer.parseInt("a"); // 예제] 강제로 예외 발생
+            Map<String, String> map = new HashMap<>(); // --- 예제 샘플
+            map.put( "data" , "sample" );
+            return ResponseEntity.status( 200 ).body( map );
+        }catch (Exception e ){
+            return ResponseEntity.status( 500 ).build();    // 500 : 서버오류
+        }
+    }
 
 }//class end
